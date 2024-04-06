@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const getToken = async () => {
+export const getToken = () => {
   try {
     const token = localStorage.getItem("appuser");
     if (token !== null) {

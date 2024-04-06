@@ -13,7 +13,6 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -69,6 +68,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
+// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
@@ -150,6 +150,24 @@ export default function Dashboard() {
 
             <ListItemButton>
               <ListItemIcon>
+                <ListAltIcon />
+              </ListItemIcon>
+              <Link to={`/product-list`} style={{ textDecoration: "none" }}>
+                Product
+              </Link>
+            </ListItemButton>
+
+            <ListItemButton>
+              <ListItemIcon>
+                <ListAltIcon />
+              </ListItemIcon>
+              <Link to={`/add-product`} style={{ textDecoration: "none" }}>
+                Create Product
+              </Link>
+            </ListItemButton>
+
+            <ListItemButton>
+              <ListItemIcon>
                 <LogoutIcon />
               </ListItemIcon>
               <ListItemText onClick={logout} primary="Log Out" />
@@ -170,17 +188,9 @@ export default function Dashboard() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item xs={12}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Outlet />
-                </Paper>
+                <Outlet />
               </Grid>
             </Grid>
           </Container>
